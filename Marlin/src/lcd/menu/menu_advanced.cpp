@@ -664,6 +664,7 @@ void menu_advanced_settings() {
         EDIT_ITEM_FAST(float51sign, MSG_DRAW_MIN_Y, &draw_area_min.y, Y_MIN_POS, draw_area_max.y - 10); // M665 T
         EDIT_ITEM_FAST(float51sign, MSG_DRAW_MAX_Y, &draw_area_max.y, draw_area_min.y + 10, Y_MAX_POS); // M665 B
         EDIT_ITEM_FAST(float51sign, MSG_MAX_BELT_LEN, &polargraph_max_belt_len, 500, 2000);             // M665 H
+        EDIT_ITEM_FAST(float51sign, MSG_PULLY_RADIUS, &polargraph_pully_radius, 0, 100);                // M665 D
       }
     #endif
 

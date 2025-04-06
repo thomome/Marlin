@@ -171,6 +171,7 @@
     if (parser.seenval('T')) draw_area_max.y = parser.value_linear_units();
     if (parser.seenval('B')) draw_area_min.y = parser.value_linear_units();
     if (parser.seenval('H')) polargraph_max_belt_len = parser.value_linear_units();
+    if (parser.seenval('D')) polargraph_pully_radius = parser.value_linear_units();
   }
 
   void GcodeSuite::M665_report(const bool forReplay/*=true*/) {
@@ -183,7 +184,8 @@
       PSTR(" R"), LINEAR_UNIT(draw_area_max.x),
       SP_T_STR, LINEAR_UNIT(draw_area_max.y),
       SP_B_STR, LINEAR_UNIT(draw_area_min.y),
-      PSTR(" H"), LINEAR_UNIT(polargraph_max_belt_len)
+      PSTR(" H"), LINEAR_UNIT(polargraph_max_belt_len),
+      PSTR(" D"), LINEAR_UNIT(polargraph_pully_radius)
     );
   }
 

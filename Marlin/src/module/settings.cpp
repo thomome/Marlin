@@ -364,6 +364,7 @@ typedef struct SettingsDataStruct {
     #elif ENABLED(POLARGRAPH)
       xy_pos_t draw_area_min, draw_area_max;            // M665 L R T B
       float polargraph_max_belt_len;                    // M665 H
+      float polargraph_pully_radius;                    // M665 D
     #endif
 
   #endif
@@ -1155,6 +1156,7 @@ void MarlinSettings::postprocess() {
         EEPROM_WRITE(draw_area_min);             // 2 floats
         EEPROM_WRITE(draw_area_max);             // 2 floats
         EEPROM_WRITE(polargraph_max_belt_len);   // 1 float
+        EEPROM_WRITE(polargraph_pully_radius);   // 1 float
       #endif
     }
     #endif
@@ -2246,6 +2248,7 @@ void MarlinSettings::postprocess() {
           EEPROM_READ(draw_area_min);             // 2 floats
           EEPROM_READ(draw_area_max);             // 2 floats
           EEPROM_READ(polargraph_max_belt_len);   // 1 float
+          EEPROM_READ(polargraph_pully_radius);   // 1 float
         #endif
       }
       #endif
@@ -3487,6 +3490,9 @@ void MarlinSettings::reset() {
       draw_area_min.set(X_MIN_POS, Y_MIN_POS);
       draw_area_max.set(X_MAX_POS, Y_MAX_POS);
       polargraph_max_belt_len = POLARGRAPH_MAX_BELT_LEN;
+      #if ENABLED(INVERSE_KINEMATICS_WITH_PULLY)
+        polargraph_pully_radius = POLARGRAPH_PULLY_RADIUS;
+      #endif
     #endif
   #endif
 

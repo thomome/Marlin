@@ -31,5 +31,6 @@
 extern float segments_per_second;
 extern xy_pos_t draw_area_min, draw_area_max;
 extern float polargraph_max_belt_len;
+extern float polargraph_pully_radius;
 
 void inverse_kinematics(const xyz_pos_t &raw);
