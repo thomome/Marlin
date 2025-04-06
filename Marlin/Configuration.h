@@ -986,6 +986,11 @@
   #define POLARGRAPH_MAX_BELT_LEN  2035.0 // (mm) Belt length at full extension. Override with M665 H.
   #define DEFAULT_SEGMENTS_PER_SECOND 5   // Move segmentation based on duration
   #define PEN_UP_DOWN_MENU                // Add "Pen Up" and "Pen Down" to the MarlinUI menu
+  
+  // #define INVERSE_KINEMATICS_WITH_PULLY   // Enable for inverse kinematics with pully 
+  #if ENABLED(INVERSE_KINEMATICS_WITH_PULLY)
+    #define POLARGRAPH_PULLY_RADIUS   5.08 // (mm) Radius of the pully
+  #endif
 #endif
 
 // @section delta
@@ -1881,7 +1886,7 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 642
+#define X_BED_SIZE 650
 #define Y_BED_SIZE 1000
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
